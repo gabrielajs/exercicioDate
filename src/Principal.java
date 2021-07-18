@@ -1,3 +1,5 @@
+import java.time.DayOfWeek;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Principal {
@@ -19,5 +21,24 @@ public class Principal {
         } else {
             System.out.println("É posterior a data " + novaData);
         }
+
+        System.out.println("---------------------");
+
+        Calendar agora = Calendar.getInstance();
+
+        System.out.printf("Data de vencimento: %tF\n", agora);
+
+        if(agora.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY){
+            agora.add(Calendar.DATE, 2);
+            System.out.printf("Vencimento caiu no sabado nova data de vencimento: %tF\n", agora.getTime());
+        }
+
+        if(agora.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY){
+            agora.add(Calendar.DATE, 1);
+            System.out.printf("Vencimento caiu no domingo nova data de vencimento: %tF\n", agora.getTime());
+        }
+
+        agora.add(Calendar.DATE, 10);
+        System.out.printf("Pode pagar até %tF\n", agora.getTime());
     }
 }
