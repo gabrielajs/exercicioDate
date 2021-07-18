@@ -1,4 +1,5 @@
 import java.time.DayOfWeek;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -22,7 +23,7 @@ public class Principal {
             System.out.println("É posterior a data " + novaData);
         }
 
-        System.out.println("---------------------");
+        System.out.println("------------------------");
 
         Calendar agora = Calendar.getInstance();
 
@@ -40,5 +41,14 @@ public class Principal {
 
         agora.add(Calendar.DATE, 10);
         System.out.printf("Pode pagar até %tF\n", agora.getTime());
+
+        System.out.println("------------------------");
+
+        LocalDateTime dataEstipulada = LocalDateTime.of(2010, 05,15, 10, 00, 00);
+
+        System.out.println("Data que foi estipulada " + dataEstipulada);
+
+        LocalDateTime dataFuturo = dataEstipulada.plusYears(4).plusMonths(6).plusHours(13);
+        System.out.println("Data futuro " + dataFuturo);
     }
 }
